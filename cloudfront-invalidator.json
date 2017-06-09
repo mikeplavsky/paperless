@@ -63,7 +63,7 @@
                 "const aws = require('aws-sdk');",
                 "const cloudfront = new aws.CloudFront({apiVersion: '2016-09-29'});",
                 "exports.handler = (event, context, callback) => {",
-                " createInvalidation(process.env[event.Records[0].s3.bucket.name.replace(/-/g,'_')], context.awsRequestId, event.Records, (err) => {",
+                " createInvalidation(process.env[event.Records[0].s3.bucket.name.replace(/-/g,'_').replace(/\./g,'_')], context.awsRequestId, event.Records, (err) => {",
                 "   if (err) callback(err);",
                 "   else callback();",
                 " });",
